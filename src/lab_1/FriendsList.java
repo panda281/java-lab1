@@ -19,7 +19,7 @@ public class FriendsList {
 	private String ip;
 	
 	public FriendsList() {
-		
+		//unnecessary constructor 
 	}
 	
 	public FriendsList(String username,String fullName, String ip) {

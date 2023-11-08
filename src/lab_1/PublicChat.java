@@ -14,7 +14,7 @@ public class PublicChat {
 	private String message;
 	
 	public PublicChat() {
-		
+		//unnecessary constructor 
 	}
 	
 	public PublicChat(String sender, String message) {
@@ -46,8 +46,13 @@ public class PublicChat {
 	
 	
 	public void displayPublicChat(List<String> list) {
+		try {
 		for(Object publicChatList: list)
 			System.out.println(publicChatList);
+		}
+		catch(Exception ex) {
+			System.out.print(ex.getMessage());
+			}
 	}
 	
 	public void writePublicChat(String path, PublicChat data) {

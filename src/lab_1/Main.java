@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 	
+// This code is review  by Aron and I added some try catch blocks. 
 
 public class Main {
 
@@ -46,7 +47,7 @@ public class Main {
 		Scanner scan = new Scanner(System.in);
 		username= scan.next();
 		int choice;
-		
+		try {
 		
 		do {
 			System.out.println("");
@@ -61,8 +62,6 @@ public class Main {
 			System.out.println("insert 8 to quit the app");
 			choice = scan.nextInt();
 			System.out.println("");
-			
-			
 			switch(choice) {
 			case 1: List<String> friendslist = new ArrayList<>();
 					friendslist = friends.getFriendsList(friendListPath);
@@ -113,11 +112,22 @@ public class Main {
 					username = scan.next();
 					System.out.println("your username updated successfully");
 					break;
-					
+			case 8: System.out.println("Thank you!");
+			System.exit(0); 
+			break;
 			}
 		}
 		while(choice!=8);
-		
+		System.exit(0);
+		}
+		catch(Exception ex) {
+			System.out.println("Please Follow instruction!");
+			exceptionThrow();
+			
+		}
+	}
+	private static void exceptionThrow() throws IOException {
+		main(null);
 	}
 
 }
