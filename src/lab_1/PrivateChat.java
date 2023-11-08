@@ -9,11 +9,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.ExceptionHandler.ExceptionHandler;
+
 public class PrivateChat {
 
 	private String sender;
 	private String receiver;
 	private String message;
+	ExceptionHandler exceptionHandeler = new ExceptionHandler();
 	
 	public PrivateChat(String sender,String receiver,String message)
 	{
@@ -28,6 +31,7 @@ public class PrivateChat {
 
 	public List<String> getPrivateChat(String path,String username,String selectedUser){
 		List <String> priChat = new ArrayList<>();
+		
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(path));
 			String line;
@@ -47,9 +51,11 @@ public class PrivateChat {
 			reader.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
+			exceptionHandeler.WriteSystemLog(e);
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
+			exceptionHandeler.WriteSystemLog(e);
 			e.printStackTrace();
 		}
 		return priChat;
@@ -84,6 +90,7 @@ public class PrivateChat {
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
+			exceptionHandeler.WriteSystemLog(e);
 			e.printStackTrace();
 		}
 	}

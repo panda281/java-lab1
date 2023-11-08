@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import com.ExceptionHandler.ExceptionHandler;
 	
 
 public class Main {
@@ -12,6 +14,7 @@ public class Main {
 	private static final String friendListPath = "friends.list";
 	private static final String publichatPath = "Eurakarte.log";
 	private static final String privatechatPath = "Donut[AFK].log";
+	
 	
 	public String friendSelector() {
 		
@@ -35,6 +38,7 @@ public class Main {
 	
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
+		ExceptionHandler exceptionHandeler = new ExceptionHandler();
 		String username;
 		FriendsList friends = new FriendsList();
 		PublicChat publiChat = new PublicChat();
@@ -47,7 +51,7 @@ public class Main {
 		username= scan.next();
 		int choice;
 		
-		
+		try {
 		do {
 			System.out.println("");
 			System.out.println("choose ");
@@ -113,11 +117,25 @@ public class Main {
 					username = scan.next();
 					System.out.println("your username updated successfully");
 					break;
+			case 8: System.out.println("Thank you");
+			System.exit(1);
+			break;
 					
 			}
 		}
 		while(choice!=8);
+		}
+	
+		catch(Exception ex) {
+			exceptionHandeler.WriteSystemLog(ex);
+			System.out.println("Please follow instruction");
+			returnMain();
+		}
+		System.exit(1);
+		}
 		
+	private static void returnMain() throws IOException {
+		main(null);
+	}
 	}
 
-}
