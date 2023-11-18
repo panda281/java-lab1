@@ -9,9 +9,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.ExceptionHandler.ExceptionHandler;
+
 public class PublicChat {
 	private String sender;
 	private String message;
+	
+	ExceptionHandler exceptionHandeler = new ExceptionHandler();
 	
 	public PublicChat() {
 		
@@ -34,9 +38,11 @@ public class PublicChat {
 			reader.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
+			exceptionHandeler.WriteSystemLog(e);
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
+			exceptionHandeler.WriteSystemLog(e);
 			e.printStackTrace();
 		}
 		
@@ -61,6 +67,7 @@ public class PublicChat {
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
+			exceptionHandeler.WriteSystemLog(e);
 			e.printStackTrace();
 		}
 	}

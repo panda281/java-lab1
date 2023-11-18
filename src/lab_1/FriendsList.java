@@ -13,11 +13,14 @@ import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.ExceptionHandler.ExceptionHandler;
+
 public class FriendsList {
 	private String username;
 	private String fullName;
 	private String ip;
 	
+	ExceptionHandler exceptionHandeler = new ExceptionHandler();
 	public FriendsList() {
 		
 	}
@@ -38,6 +41,7 @@ public class FriendsList {
 		}
 		catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
+			exceptionHandeler.WriteSystemLog(e);
 				e.printStackTrace();
 		}
 		catch (IOException e) {
@@ -68,9 +72,11 @@ public class FriendsList {
 			reader.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
+			exceptionHandeler.WriteSystemLog(e);
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
+			exceptionHandeler.WriteSystemLog(e);
 			e.printStackTrace();
 		}
 		
@@ -106,9 +112,11 @@ public class FriendsList {
 			reader.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
+			exceptionHandeler.WriteSystemLog(e);
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
+			exceptionHandeler.WriteSystemLog(e);
 			e.printStackTrace();
 		}
 		return friendlist;
